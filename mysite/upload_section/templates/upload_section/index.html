@@ -1,0 +1,20 @@
+<html>
+    <h1>Intelligence Squad</h1>
+  <head>
+    <meta charset="utf-8">
+    <title>Intelligence Squad</title>
+  </head>
+  <body>
+    {%if posts_list %}
+    <form>
+        
+        <ul>
+            <li>{{ post.post_title }}</li>
+        </ul>
+    </form>
+    {%else%}
+        <p>No posts are available</p>
+    {%endif%}
+    
+  </body>
+</html>
