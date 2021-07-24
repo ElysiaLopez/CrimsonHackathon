@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
     <h1>Intelligence Squad</h1>
   <head>
     <meta charset="utf-8">
@@ -17,4 +17,35 @@
     {%endif%}
     
   </body>
-</html>
+</html> -->
+
+<form action="submitted_post" method="post">
+  {% csrf_token %}
+  <fieldset>
+        <legend><h1>Try to post something! :)</h1></legend>
+        <input type="text">
+  </fieldset>
+  <input type="submit" value="Post">
+  </form>
+
+
+
+
+{% if text_posts_list or image_posts_list or file_posts_list %}
+    <h2>Your Feed:</h2>
+    <ul>
+    {% for post in text_posts_list %}
+        <li>{{ post.text_data }}</li>
+    {% endfor %}
+
+    {% for post in image_posts_list %}
+        <li><img src= "flower-in-desert.jpg" alt={{post.post_title}}></li>
+    {% endfor %}
+
+    {% for post in file_posts_list %}
+        <li><a>{{ post.file_data}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No posts are available.</p>
+{% endif %}
